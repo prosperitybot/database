@@ -19,14 +19,19 @@ module.exports = (sequelize, type) => {
 			allowNull: true,
 		},
 		xpRate: {
-			type: type.INTEGER,
+			type: type.DECIMAL,
 			allowNull: false,
-			defaultValue: 1,
+			defaultValue: 1.0,
 		},
 		roleAssignType: {
 			type: type.STRING,
 			allowNull: false,
 			defaultValue: 'single',
 		},
+		active: {
+			type: type.BOOLEAN,
+			allowNull: false,
+			defaultValue: true,
+		}
 	});
 };
