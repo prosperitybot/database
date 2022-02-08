@@ -8,9 +8,16 @@ module.exports = (sequelize, type) => {
 			type: type.STRING,
 			allowNull: false,
 		},
-		whitelabel: {
-			type: type.BOOLEAN,
-			defaultValue: false,
+		access_levels: {
+			type: type.STRING,
+			allowNull: false,
+			defaultValue: 'null',
+			get() {
+				return this.getDataValue('access_levels').split(',')
+			},
+			set(val) {
+				this.setDataValue('access_levels', val.join(','))
+			}
 		},
 		discriminator: {
 			type: type.STRING,
