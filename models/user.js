@@ -23,5 +23,9 @@ module.exports = (sequelize, type) => {
 			type: type.STRING,
 			allowNull: false,
 		},
+		premium_source: {
+			type: type.STRING,
+			allowNull: true,
+		}
 	});
 };
