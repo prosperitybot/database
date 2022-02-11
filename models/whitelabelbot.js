@@ -13,6 +13,11 @@ module.exports = (sequelize, type) => {
 			type: type.STRING,
 			allowNull: false,
 		},
+		last_action: {
+			type: type.STRING,
+			allowNull: true,
+			defaultValue: 'start',
+		},
 		action: {
 			type: type.STRING,
 			allowNull: true,
