@@ -41,6 +41,7 @@ IgnoredRole.belongsTo(Guild);
 Guild.hasMany(IgnoredRole);
 
 WhitelabelBot.belongsTo(User);
+User.belongsTo(WhitelabelBot);
 
 MessageLog.belongsTo(Guild);
 MessageLog.belongsTo(User);
