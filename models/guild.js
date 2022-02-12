@@ -36,7 +36,7 @@ module.exports = (sequelize, type) => {
 		locale: {
 			type: type.STRING,
 			allowNull: false,
-			defaultValue: "en-GB"
+			defaultValue: "en-US"
 		}
 	});
 };
