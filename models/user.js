@@ -26,6 +26,10 @@ module.exports = (sequelize, type) => {
 		premium_source: {
 			type: type.STRING,
 			allowNull: true,
+		},
+		locale: {
+			type: type.STRING,
+			allowNull: true,
 		}
 	});
 };
