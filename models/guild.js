@@ -37,6 +37,11 @@ module.exports = (sequelize, type) => {
 			type: type.STRING,
 			allowNull: false,
 			defaultValue: "en-US"
+		},
+		serverLocaleOnly: {
+			type: type.BOOLEAN,
+			allowNull: false,
+			defaultValue: false,
 		}
 	});
 };
