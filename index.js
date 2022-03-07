@@ -8,6 +8,7 @@ const IgnoredChannelModel = require('./models/ignoredchannel.js');
 const IgnoredRoleModel = require('./models/ignoredrole.js');
 const WhitelabelBotModel = require('./models/whitelabelbot.js');
 const MessageLogModel = require('./models/messagelog');
+const CommandLogModel = require('./models/commandlog');
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
 	host: process.env.DB_HOST,
@@ -23,6 +24,7 @@ const IgnoredChannel = IgnoredChannelModel(sequelize, Sequelize);
 const IgnoredRole = IgnoredRoleModel(sequelize, Sequelize);
 const WhitelabelBot = WhitelabelBotModel(sequelize, Sequelize);
 const MessageLog = MessageLogModel(sequelize, Sequelize);
+const CommandLog = CommandLogModel(sequelize, Sequelize);
 
 User.belongsToMany(Guild, { through: GuildUser });
 Guild.belongsToMany(User, { through: GuildUser });
@@ -48,6 +50,11 @@ MessageLog.belongsTo(User);
 Guild.hasMany(MessageLog);
 User.hasMany(MessageLog);
 
+CommandLog.belongsTo(Guild);
+CommandLog.belongsTo(User);
+Guild.hasMany(CommandLog);
+User.hasMany(CommandLog);
+
 module.exports = {
 	User,
 	Guild,
@@ -57,6 +64,7 @@ module.exports = {
 	IgnoredRole,
 	WhitelabelBot,
 	MessageLog,
+	CommandLog,
 	sequelize,
 	setup: (logger) => {
 		sequelize.options.logging = msg => logger.info(msg);
