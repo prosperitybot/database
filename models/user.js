@@ -11,7 +11,7 @@ module.exports = (sequelize, type) => {
 		access_levels: {
 			type: type.STRING,
 			allowNull: false,
-			defaultValue: 'null',
+			defaultValue: '',
 			get() {
 				return this.getDataValue('access_levels').split(',')
 			},
