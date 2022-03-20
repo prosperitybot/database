@@ -23,5 +23,15 @@ module.exports = (sequelize, type) => {
 			allowNull: true,
 			defaultValue: 'start',
 		},
+		statusType: {
+			type: type.STRING,
+			allowNull: false,
+			defaultValue: 'PLAYING',
+		},
+		statusContent: {
+			type: type.STRING,
+			allowNull: false,
+			defaultValue: 'Hosted by ProsperityBot.net'
+		},
 	});
 };
